@@ -10,6 +10,17 @@
 *
 * @author Mark Rolich <mark.rolich@gmail.com>
 */
+Array.prototype.shuffle = function () {
+    var temp, j, i;
+
+    for (temp, j, i = this.length; i; ) {
+        j = parseInt(Math.random () * i);
+        temp = this[--i];
+        this[i] = this[j];
+        this[j] = temp;
+    }
+};
+
 var FifteenPuzzle = function (evt, board) {
     "use strict";
     this.speed      = 1;
