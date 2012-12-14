@@ -16,21 +16,10 @@
 <button type="button" id="new-game" style="float: right">New game</button>
 </div>
 
-<script type="text/javascript" src="Event.js"></script>
+<script type="text/javascript" src="../Event.js/Event.js"></script>
 <script type="text/javascript" src="FifteenPuzzle.js"></script>
 <script type="text/javascript">
 "use strict";
-Array.prototype.shuffle = function () {
-    var temp, j, i;
-
-    for (temp, j, i = this.length; i; ) {
-        j = parseInt(Math.random () * i);
-        temp = this[--i];
-        this[i] = this[j];
-        this[j] = temp;
-    }
-};
-
 var evt             = new Event(),
     board           = document.getElementById('board'),
     game            = new FifteenPuzzle(evt, board),
