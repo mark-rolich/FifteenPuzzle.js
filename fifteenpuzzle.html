@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Fifteen puzzle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<link rel="stylesheet" type="text/css" href="fifteenpuzzle.css">
+<body>
+<h1>Fifteen puzzle</h1>
+
+<div id="board">&nbsp;</div>
+
+<div class="info">
+<div id="game-info">Moves: <strong id="moves">0</strong></div>
+<button type="button" id="new-game" style="float: right">New game</button>
+</div>
+
+<script type="text/javascript" src="Event.js"></script>
+<script type="text/javascript" src="FifteenPuzzle.js"></script>
+<script type="text/javascript">
+"use strict";
+Array.prototype.shuffle = function () {
+    var temp, j, i;
+
+    for (temp, j, i = this.length; i; ) {
+        j = parseInt(Math.random () * i);
+        temp = this[--i];
+        this[i] = this[j];
+        this[j] = temp;
+    }
+};
+
+var evt             = new Event(),
+    board           = document.getElementById('board'),
+    game            = new FifteenPuzzle(evt, board),
+    gameInfo        = document.getElementById('game-info'),
+    movesNum        = document.getElementById('moves'),
+    btn             = document.getElementById('new-game'),
+    restartText     = 'Are you sure to restart the game?',
+    winRestartText  = 'Play again?',
+    slideCallback   = function (moveCnt) {
+        movesNum.childNodes[0].nodeValue = moveCnt;
+    },
+    restart         = function (confirmText) {
+        if (window.confirm(confirmText)) {
+            gameInfo.innerHTML = 'Moves: <strong id="moves">0</strong>';
+            movesNum = document.getElementById('moves');
+            movesNum.childNodes[0].nodeValue = 0;
+            game.render();
+        }
+    },
+    winCallback     = function (moveCnt) {
+        gameInfo.innerHTML = 'You win in <strong>' + moveCnt + '</strong> moves!';
+
+        window.setTimeout(function () {
+            restart(winRestartText);
+        }, 2000);
+    };
+
+game.render();
+game.speed = 10;
+
+game.onslide    = slideCallback;
+game.onwin      = winCallback;
+
+evt.attach('click', btn, function () {
+    restart(restartText);
+});
+</script>
+</body>
+</html>
