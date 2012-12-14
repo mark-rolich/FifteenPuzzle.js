@@ -51,7 +51,7 @@ var evt             = new Event(),
         }
     },
     winCallback     = function (moveCnt) {
-        gameInfo.innerHTML = 'You win in <strong>' + moveCnt + '</strong> moves!';
+        gameInfo.innerHTML = 'You won in <strong>' + moveCnt + '</strong> moves!';
 
         window.setTimeout(function () {
             restart(winRestartText);
