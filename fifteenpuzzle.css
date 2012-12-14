@@ -1,0 +1,80 @@
+html, body {
+    font: 13px Arial
+}
+
+h1 {
+    text-align: center
+}
+
+table {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0px auto;
+    background-color: #FFE7A5;
+    border-collapse: separate;
+    border-spacing: 10px;
+    padding: 0;
+    border: solid 1px #aaa;
+    font-size: 45px;
+    *border-collapse: expression('separate', cellSpacing = '10px');
+}
+
+table td {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    z-index: 0;
+    vertical-align: top
+}
+
+table td a {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    display: block;
+    text-decoration: none;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    z-index: 1000
+}
+
+.odd {
+    background-color: green;
+}
+
+.even {
+    background-color: red;
+}
+
+.info {
+    width: 430px;
+    margin: 15px auto 0 auto;
+    border: solid 1px #ccc;
+    overflow: hidden;
+    padding: 5px;
+    height: 25px;
+    line-height: 25px
+}
+
+.info strong {
+    color: red
+}
+
+.info div {
+    float: left;
+    font-size: 18px;
+}
+
+.info button {
+    float: right;
+    display: block;
+    height: 25px;
+    line-height: 12px
+}
