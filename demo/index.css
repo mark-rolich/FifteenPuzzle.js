@@ -1,0 +1,169 @@
+html, body {
+    font: 15px Impact, Arial, sans-serif;
+    background-color: #818181
+}
+
+h1 {
+    text-align: center
+}
+
+#board {
+    background: transparent url('img/board.png') no-repeat 0 0 scroll;
+    margin: 0px auto;
+    padding: 10px 0 0 20px;
+    width: 460px;
+    height: 474px;
+}
+
+table {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    float: left;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 0;
+    width: 440px;
+    height: 440px;
+
+}
+
+table td {
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    margin: 0;
+    top: 0;
+    z-index: 0;
+    vertical-align: top
+}
+
+table td a {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    display: block;
+    text-decoration: none;
+    padding: 0;
+    text-align: center;
+    z-index: 1000
+}
+
+.tile {
+    background-color: transparent;
+    background-image: url('img/tiles.png');
+    background-repeat: no-repeat;
+    font-size: 0
+}
+
+.tile-1  {background-position: 0 0}
+.tile-2 {background-position: -100px 0px}
+.tile-3 {background-position: -200px 0px}
+.tile-4 {background-position: -300px 0px}
+.tile-5 {background-position: 0px -100px}
+.tile-6 {background-position: -100px -100px}
+.tile-7 {background-position: -200px -100px}
+.tile-8 {background-position: -300px -100px}
+.tile-9 {background-position: 0px -200px}
+.tile-10 {background-position: -100px -200px}
+.tile-11 {background-position: -200px -200px}
+.tile-12 {background-position: -300px -200px}
+.tile-13 {background-position: 0px -300px}
+.tile-14 {background-position: -100px -300px}
+.tile-15 {background-position: -200px -300px}
+
+.controls {
+    width: 435px;
+    margin: 15px auto 0 auto;
+    overflow: hidden;
+    padding: 0;
+    height: 67px;
+    line-height: 67px
+}
+
+.controls .lft {
+    float: left;
+    width: 11px;
+    background: transparent url('img/ctrl_bar_lft_bg.png') no-repeat 0 0 scroll;
+}
+
+.controls .bg {
+    float: left;
+    width: 411px;
+    background: transparent url('img/ctrl_bar_bg.png') repeat-x 0 0 scroll;
+}
+
+.controls .rgt {
+    float: right;
+    width: 13px;
+    background: transparent url('img/ctrl_bar_rgt_bg.png') no-repeat 0 0 scroll;
+}
+
+.controls a {
+    margin: 14px 3px 0 0;
+    float: right;
+    width: 116px;
+    height: 38px;
+    text-decoration: none;
+    background: transparent url('img/new_game_btn_normal.png') no-repeat 0 0 scroll;
+}
+
+.controls a:hover {
+    width: 116px;
+    height: 38px;
+    background: transparent url('img/new_game_btn_over.png') no-repeat 0 0 scroll;
+}
+
+.controls a:active {
+    width: 116px;
+    height: 38px;
+    background: transparent url('img/new_game_btn_down.png') no-repeat 0 0 scroll;
+}
+
+.info {
+    float: left;
+    width: 170px;
+    margin-left: 90px;
+    position: relative;
+    color: #594819
+}
+
+.info div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    width: 118px;
+    height: 40px;
+    margin-top: 13px;
+    text-align: center;
+    line-height: 40px;
+    z-index: 0
+}
+
+.info .moves_bg {
+    position: absolute;
+    z-index: 1000;
+    background: transparent url('img/moves_bg.png') no-repeat 0 0 scroll;
+    width: 118px;
+    height: 40px;
+    margin-top: 13px;
+    text-align: center;
+    line-height: 40px;
+    top: 0;
+    right: 0
+}
+
+.credits {
+    margin: 25px auto 0 auto;
+    width: 500px;
+    text-align: left
+}
+
+.credits a {
+    color: #000
+}

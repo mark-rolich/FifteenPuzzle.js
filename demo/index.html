@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Fifteen puzzle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<link rel="stylesheet" type="text/css" href="index.css">
+<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="ie6.css" />
+<![endif]-->
+<body>
+<h1>Fifteen puzzle</h1>
+
+<div id="board"></div>
+
+<div class="controls">
+<div class="lft">&nbsp;</div>
+<div class="bg">
+<div class="info" id="info">Moves: <div id="moves">0</div><div class="moves_bg">&nbsp;</div></div>
+<a href="javascript:void(0)" id="new-game">&nbsp;</a>
+</div>
+<div class="rgt">&nbsp;</div>
+</div>
+
+<div class="credits">
+    <div>Programming: Mark Rolich</div>
+    <div>Artwork and graphics by <a href="http://www.facebook.com/boris.tovmasyan">Boris Tovmasyan</a> &copy;2012, free for non-commercial use</div>
+</div>
+
+<script type="text/javascript" src="../Event.js"></script>
+<script type="text/javascript" src="../FifteenPuzzle.js"></script>
+<script type="text/javascript">
+"use strict";
+var evt             = new Event(),
+    board           = document.getElementById('board'),
+    game            = new FifteenPuzzle(evt, board),
+    gameInfo        = document.getElementById('info'),
+    movesNum        = document.getElementById('moves'),
+    btn             = document.getElementById('new-game'),
+    restartText     = 'Are you sure to restart the game?',
+    winRestartText  = 'Play again?',
+    slideCallback   = function (moveCnt) {
+        movesNum.childNodes[0].nodeValue = moveCnt;
+    },
+    restart         = function (confirmText) {
+        if (window.confirm(confirmText)) {
+            gameInfo.innerHTML = 'Moves: <div id="moves">0</div><div class="moves_bg">&nbsp;</div>';
+            movesNum = document.getElementById('moves');
+            movesNum.childNodes[0].nodeValue = 0;
+            game.render();
+        }
+    },
+    winCallback     = function (moveCnt) {
+        gameInfo.innerHTML = 'You won in <strong>' + moveCnt + '</strong> moves!';
+
+        window.setTimeout(function () {
+            restart(winRestartText);
+        }, 2000);
+    };
+
+game.render();
+game.speed = 10;
+
+game.onslide    = slideCallback;
+game.onwin      = winCallback;
+
+evt.attach('click', btn, function () {
+    restart(restartText);
+});
+</script>
+</body>
+</html>

@@ -158,7 +158,8 @@ var FifteenPuzzle = function (evt, board) {
                     tile.setAttribute('moving', 0);
                     tile.appendChild(document.createTextNode(tileNums[k] + 1));
 
-                    tile.className = ((tileNums[k] + 1) % 2 !== 0) ? 'odd' : 'even';
+                    tile.className = 'tile tile-' + (tileNums[k] + 1);
+                    tile.className += ((tileNums[k] + 1) % 2 !== 0) ? ' odd' : ' even';
 
                     cell.appendChild(tile);
                 }
@@ -172,8 +173,8 @@ var FifteenPuzzle = function (evt, board) {
             table.appendChild(tbody);
         }
 
-        if (board.childNodes.length > 1) {
-            board.replaceChild(table, board.childNodes[1]);
+        if (board.childNodes.length > 0) {
+            board.replaceChild(table, board.childNodes[0]);
         } else {
             board.appendChild(table);
         }
