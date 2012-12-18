@@ -103,7 +103,24 @@ table td a {
     background: transparent url('img/ctrl_bar_rgt_bg.png') no-repeat 0 0 scroll;
 }
 
-.controls a {
+.controls a.help {
+    margin: 14px 0 0 3px;
+    float: left;
+    width: 76px;
+    height: 38px;
+    text-decoration: none;
+    background: transparent url('img/info_btn_normal.png') no-repeat 0 0 scroll;
+}
+
+.controls a.help:hover {
+    background: transparent url('img/info_btn_over.png') no-repeat 0 0 scroll;
+}
+
+.controls a.help:active {
+    background: transparent url('img/info_btn_down.png') no-repeat 0 0 scroll;
+}
+
+.controls a.new-game {
     margin: 14px 3px 0 0;
     float: right;
     width: 116px;
@@ -112,22 +129,18 @@ table td a {
     background: transparent url('img/new_game_btn_normal.png') no-repeat 0 0 scroll;
 }
 
-.controls a:hover {
-    width: 116px;
-    height: 38px;
+.controls a.new-game:hover {
     background: transparent url('img/new_game_btn_over.png') no-repeat 0 0 scroll;
 }
 
-.controls a:active {
-    width: 116px;
-    height: 38px;
+.controls a.new-game:active {
     background: transparent url('img/new_game_btn_down.png') no-repeat 0 0 scroll;
 }
 
 .info {
     float: left;
     width: 170px;
-    margin-left: 90px;
+    margin-left: 10px;
     position: relative;
     color: #594819
 }
