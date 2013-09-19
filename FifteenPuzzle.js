@@ -36,7 +36,7 @@ var FifteenPuzzle = function (evt, board) {
             var i       = 0,
                 ids     = [];
 
-            for (i = 0; i < tiles.length; i++) {
+            for (i = 0; i < tiles.length; i = i + 1) {
                 ids.push(parseInt(tiles[i].getAttribute('idx'), 10));
             }
 
@@ -83,7 +83,7 @@ var FifteenPuzzle = function (evt, board) {
                 element.style[elemPos] = pos + 'px';
 
                 pos = pos + (dir * multiplier);
-                i++;
+                i = i + 1;
             }, 10);
         },
         getDirection = function (idx) {
@@ -118,7 +118,7 @@ var FifteenPuzzle = function (evt, board) {
                         freeCell = idx;
 
                         move(src, ori, dir);
-                        moveCnt++;
+                        moveCnt = moveCnt + 1;
 
                         if (self.onslide !== undefined) {
                             self.onslide(moveCnt);
@@ -126,6 +126,27 @@ var FifteenPuzzle = function (evt, board) {
                     }
                 }
             }
+        },
+        isSolvable = function (tiles) {
+            var i = 0,
+                j = 0,
+                sum = 0,
+                cnt = 0,
+                len = 15;
+
+            for (i = 0; i < len; i = i + 1) {
+                cnt = 0;
+
+                for (j = i + 1; j < len; j = j + 1) {
+                    if (tiles[j] + 1 < tiles[i] + 1) {
+                        cnt = cnt + 1;
+                    }
+                }
+
+                sum += cnt;
+            }
+
+            return 1 - ((sum + 4) % 2);
         };
 
     this.render = function () {
@@ -145,10 +166,14 @@ var FifteenPuzzle = function (evt, board) {
 
         tileNums.shuffle();
 
-        for (i = 0; i < 4; i++) {
+        while (isSolvable(tileNums) === 0) {
+            tileNums.shuffle();
+        }
+
+        for (i = 0; i < 4; i = i + 1) {
             row = row.cloneNode(false);
 
-            for (j = 0; j < 4; j++) {
+            for (j = 0; j < 4; j = j + 1) {
                 cell = cell.cloneNode(false);
 
                 if (k !== 15) {
@@ -167,7 +192,7 @@ var FifteenPuzzle = function (evt, board) {
                 row.appendChild(cell);
                 tbody.appendChild(row);
 
-                k++;
+                k = k + 1;
             }
 
             table.appendChild(tbody);
