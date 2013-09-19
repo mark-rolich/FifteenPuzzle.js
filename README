@@ -1,6 +1,8 @@
 Javascript implementation of "Fifteen puzzle" game
 (http://en.wikipedia.org/wiki/15_puzzle)
 
+Demo: http://mark-rolich.github.io/FifteenPuzzle.js/demo/index.html
+
 Tested in the following browsers: IE 6.0 - 8.0, FF 17, Chrome 22, Safari 5.1.1
 
 FifteenPuzzle.js requires Event.js package, which can be acquired at the following links:
